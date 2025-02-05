@@ -28,4 +28,24 @@ class PredatorsViewModal {
         }
         
     }
+    
+    func search(for searchTerm: String) -> [PredatorsModel] {
+        if searchTerm.isEmpty {
+            return apexPredators
+        } else {
+            return apexPredators.filter {
+                $0.name.lowercased().contains(searchTerm.lowercased())
+            }
+        }
+    }
+    
+    func sort(by alphabetical: Bool) {
+        apexPredators.sort { predators1, predators2 in
+            if alphabetical {
+                predators1.name < predators2.name
+            } else {
+                predators1.id < predators2.id
+            }
+        }
+    }
 }
