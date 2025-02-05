@@ -48,4 +48,14 @@ class PredatorsViewModal {
             }
         }
     }
+    
+    func filter(by type: APType) {
+        if type == .all {
+            
+        } else {
+            apexPredators = apexPredators.filter { predators in
+                predators.type == type
+            }
+        }
+    }
 }
