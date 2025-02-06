@@ -29,15 +29,45 @@ struct PredatorDetail: View {
                         .offset(y: 20) // this creates the 3d effect. Due to this dino legs is out of image
                 }
                 
-                // Dino Name
-                
-                // Current location
-                
-                // Appears in
-                
-                // Movie moments
-                
-                // Link webpage
+                VStack(alignment: .leading) {
+                    // Dino Name
+                    Text(predators.name)
+                        .font(.largeTitle)
+                    // Current location
+                    
+                    // Appears in
+                    Text("Appears In:")
+                        .font(.title3)
+                    
+                    ForEach(predators.movies, id: \.self) { movie in
+                        Text("•" + movie)
+                    }
+                    
+                    // Movie moments
+                    Text("Movie Moments")
+                        .font(.title)
+                        .padding(.top, 15)
+                    
+                    ForEach(predators.movieScenes) { scene in
+                        Text(scene.movie)
+                            .font(.title2)
+                            .padding(.vertical, 1)
+                        
+                        Text(scene.sceneDescription)
+                            .padding(.bottom, 15)
+                    }
+                    
+                    // Link webpage
+                    Text("Read More:")
+                        .font(.caption)
+                    
+                    Link(predators.link, destination: URL(string: predators.link)!)
+                        .font(.caption)
+                        .foregroundStyle(.blue)
+                }
+                .padding()
+                .padding(.bottom)
+                .frame(width: geo.size.width, alignment: .leading)
             }
         }
         .ignoresSafeArea()
