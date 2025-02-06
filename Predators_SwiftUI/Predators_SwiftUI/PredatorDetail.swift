@@ -8,15 +8,37 @@
 import SwiftUI
 
 struct PredatorDetail: View {
+    let predators: PredatorsModel
+    
     var body: some View {
-        Text("Hello World!")
-//        Image(predators.image)
-//            .resizable()
-//            .scaledToFit()
+        ScrollView {
+            ZStack {
+                // Background Image
+                Image(predators.type.rawValue)
+                    .resizable()
+                    .scaledToFit()
+                
+                // Dino Image
+                Image(predators.image)
+                    .resizable()
+                    .scaledToFit()
+            }
+            
+            // Dino Name
+            
+            // Current location
+            
+            // Appears in
+            
+            // Movie moments
+            
+            // Link webpage
+        }
+        .ignoresSafeArea()
     }
 }
 
 #Preview {
-    PredatorDetail()
-        .preferredColorScheme(.dark)
+    PredatorDetail(predators: PredatorsViewModal().apexPredators[2])
+        //.preferredColorScheme(.dark)
 }
