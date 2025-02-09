@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct PredatorDetail: View {
     let predators: PredatorsModel
+    
+    @State var position: MapCameraPosition
     
     var body: some View {
         GeometryReader { geo in
@@ -36,7 +39,36 @@ struct PredatorDetail: View {
                     // Dino Name
                     Text(predators.name)
                         .font(.largeTitle)
+                    
                     // Current location
+                    NavigationLink {
+                        
+                    } label: {
+                        Map(position: $position) {
+                            Annotation(predators.name, coordinate: predators.location) {
+                                Image(systemName: "mappin.and.ellipse")
+                                    .font(.largeTitle)
+                                    .imageScale(.large)
+                                    .symbolEffect(.pulse)
+                            }
+                            .annotationTitles(.hidden)
+                        }
+                        .frame(height: 125)
+                        .overlay(alignment: .trailing) {
+                            Image(systemName: "greaterthan")
+                                .imageScale(.large)
+                                .font(.title3)
+                                .padding(.trailing, 5)
+                        }
+                        .overlay(alignment: .topLeading) {
+                            Text("Current Location")
+                                .padding([.leading, .bottom], 5)
+                                .padding(.trailing, 8)
+                                .background(.black.opacity(0.33))
+                                .clipShape(.rect(bottomTrailingRadius: 15))
+                        }
+                        .clipShape(.rect(cornerRadius: 15))
+                    }
                     
                     // Appears in
                     Text("Appears In:")
@@ -74,10 +106,19 @@ struct PredatorDetail: View {
             }
         }
         .ignoresSafeArea()
+        .toolbarBackground(.automatic)
     }
 }
 
 #Preview {
-    PredatorDetail(predators: PredatorsViewModal().apexPredators[10])
+    let predators = PredatorsViewModal().apexPredators[2]
+    NavigationStack {
+        PredatorDetail(predators: predators,
+                       position: .camera(
+                        MapCamera(
+                            centerCoordinate: predators.location,
+                            distance: 30000
+                        )))
         .preferredColorScheme(.dark)
+    }
 }
