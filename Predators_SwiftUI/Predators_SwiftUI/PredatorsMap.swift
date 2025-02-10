@@ -42,6 +42,7 @@ struct PredatorsMap: View {
                     .padding()
             }
         }
+        .toolbarBackground(.automatic)
     }
 }
 
