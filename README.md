@@ -5,8 +5,10 @@ This repo is about a app which displays the dinosaurs featured in Jurassic Park 
 <div>
     <img src="_Demo/mockup_1.png" alt="Main Screen" width="250"/>&nbsp;&nbsp;&nbsp;
     <img src="_Demo/mockup_2.png" alt="Exchange Rates View" width="250"/>&nbsp;&nbsp;&nbsp;
-    <img src="_Demo/mockup_3.png" alt="Currency View" width="250"/>
-    <img src="_Demo/mockup_4.png" alt="Currency View" width="250"/>
+    <img src="_Demo/mockup_3.png" alt="Currency View" width="250"/>&nbsp;&nbsp;&nbsp;
+    <img src="_Demo/mockup_4.png" alt="Currency View" width="250"/>&nbsp;&nbsp;&nbsp;
+    <img src="_Demo/mockup_5.png" alt="Currency View" width="250"/>&nbsp;&nbsp;&nbsp;
+    <img src="_Demo/mockup_6.png" alt="Currency View" width="250"/>
   </div>
   
   
